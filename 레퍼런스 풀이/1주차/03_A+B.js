@@ -1,4 +1,8 @@
-const fs = require("fs"); // fs 모듈 선언
-const input = fs.readFileSync("/dev/stdin").toString().split(" ").map(Number); // 입력 값 가져오기 + 데이터 정제
+//한 줄인 경우
+let fs = require('fs');
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().split(" ");
 
-console.log(input[0] + input[1]); // 출력
+input = input.map(a => Number(a));
+
+console.log(input[0] + input[1]);
